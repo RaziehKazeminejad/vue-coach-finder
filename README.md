@@ -1,4 +1,4 @@
-# dynamic-dropdown
+# vue-coach-finder
 
 ## Project setup
 ```
