@@ -1,14 +1,15 @@
-import mutation from './mutation';
-import actions from './actions';
+import mutations from './mutations.js';
+import actions from './actions.js';
+import getters from './getters.js';
 
-const requestsModules = {
+export default {
   namespaced: true,
   state() {
     return {
       requests: [],
     };
   },
-  mutation,
+  mutations,
   actions,
+  getters,
 };
-export default requestsModules;

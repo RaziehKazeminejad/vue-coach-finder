@@ -2,7 +2,7 @@ import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
 
-const coachesModules = {
+export default {
   namespaced: true,
   state() {
     return {
@@ -33,4 +33,3 @@ const coachesModules = {
   getters,
 };
 
-export default coachesModules;
