@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <base-card>
+  <section class="row">
+    <base-card mode="shadow" color="color">
       <h2>Register as coach</h2>
       <coach-form @save-data="saveData"></coach-form>
     </base-card>
@@ -20,5 +20,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h2 {
+  margin-bottom: 1.6rem;
+  color: var(--purple-2);
+}
+section {
+  margin-top: 3.2rem;
+}
 </style>

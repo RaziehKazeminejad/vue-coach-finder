@@ -44,8 +44,8 @@
       <p v-if="!rate.isValid">Rate must be greater than 0.</p>
     </div>
 
-    <div class="form-control" :class="{ invalid: !areas.isValid }">
-      <h3>Areas of Experiense</h3>
+    <div class="form-control checkboxes" :class="{ invalid: !areas.isValid }">
+      <h4>Areas of Experiense</h4>
       <div>
         <input
           type="checkbox"
@@ -79,9 +79,11 @@
       <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
 
-    <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
+    <p v-if="!formIsValid" class="errors">
+      Please fix the above errors and submit again.
+    </p>
 
-    <base-button>Register</base-button>
+    <base-button class="submit-btn">Register</base-button>
   </form>
 </template>
 
@@ -163,57 +165,71 @@ export default {
 
 <style scoped>
 .form-control {
-  margin: 0.5rem 0;
+  margin: 1.6rem 0;
 }
-
 label {
   font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 1.4rem;
 }
-
 input[type='checkbox'] + label {
-  font-weight: normal;
+  font-weight: bold;
   display: inline;
-  margin: 0 0 0 0.5rem;
+  margin-left: 1rem;
 }
-
 input,
 textarea {
   display: block;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 0.2rem solid #ccc;
   font: inherit;
+  padding: 0.2em 0.4em;
+  border-radius: 0.8rem;
 }
-
 input:focus,
 textarea:focus {
-  background-color: #f0e6fd;
+  background-color: var(--pink-2);
   outline: none;
-  border-color: #3d008d;
+  border-color: var(--purple-3);
 }
-
 input[type='checkbox'] {
-  display: inline;
+  display: inline-block;
   width: auto;
   border: none;
+  transform: scale(1.2);
 }
-
-input[type='checkbox']:focus {
-  outline: #3d008d solid 1px;
-}
-
 h3 {
   margin: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
-
 .invalid label {
-  color: red;
+  color: #d13b3b;
 }
-
 .invalid input,
 .invalid textarea {
-  border: 1px solid red;
+  border-color: #d13b3b;
+}
+.errors {
+  color: #d13b3b;
+  font-weight: bold;
+}
+.invalid input:focus,
+.invalid textarea:focus {
+  background: #fce2e2;
+}
+.checkboxes > div {
+  margin: 0.5rem 0;
+}
+.checkboxes {
+  margin-bottom: 2.4rem;
+}
+p {
+  margin-top: 0.2em;
+  font-size: 1.4rem;
+}
+.submit-btn {
+  margin-top: 2rem;
 }
 </style>

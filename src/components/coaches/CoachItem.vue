@@ -1,17 +1,22 @@
 <template>
-  <li>
-    <h3>{{ fullName }}</h3>
-    <h4>${{ rate }} /hours</h4>
-    <div>
-      <base-badge v-for="area in areas" :key="area" :type="area" :title="area"></base-badge>
-    </div>
-    <div class="actions">
-      <base-button link mode="outline" :to="coachContactLink"
-        >Contact</base-button
-      >
-      <base-button link :to="coachDetailsLink">View Details</base-button>
-    </div>
-  </li>
+  <base-card mode="shadow">
+    <li>
+      <h3>{{ fullName }}</h3>
+      <base-price :rate="rate"></base-price>
+      <div>
+        <base-badge
+          v-for="area in areas"
+          :key="area"
+          :type="area"
+          :title="area"
+        ></base-badge>
+      </div>
+      <div class="actions">
+        <base-button link mode="outline" :to="coachContactLink">Contact</base-button>
+        <base-button link :to="coachDetailsLink">View Details</base-button>
+      </div>
+    </li>
+  </base-card>
 </template>
 
 <script>
@@ -34,28 +39,27 @@ export default {
 </script>
 
 <style scoped>
+.card:hover {
+  border-color: var(--purple-2);
+  box-shadow: 1rem 1rem var(--purple-1);
+}
 li {
-  margin: 1rem 0;
-  border: 1px solid #424242;
-  border-radius: 12px;
-  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
 }
-
 h3 {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
+  color: var(--purple-2);
+  font-family: var(--font-display);
+  font-weight: normal;
 }
-
-h3,
-h4 {
-  margin: 0.5rem 0;
-}
-
-div {
-  margin: 0.5rem 0;
-}
-
 .actions {
+  margin-top: auto;
+  padding-top: 1.6rem;
   display: flex;
   justify-content: flex-end;
+  gap: 1.6rem;
 }
 </style>

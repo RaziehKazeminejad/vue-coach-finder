@@ -1,72 +1,75 @@
 <template>
-  <header>
-    <nav>
-      <h1><router-link to="/">Find a Coach</router-link></h1>
-      <ul>
-        <li><router-link to="/coaches">All Coaches</router-link></li>
-        <li><router-link to="/requests">Requests</router-link></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="row">
+    <header>
+      <nav>
+        <h1>
+          <router-link to="/" id="brand-title">Find a Coach</router-link>
+        </h1>
+        <ul>
+          <li><base-button link to="/coaches">All Coaches</base-button></li>
+          <li><base-button link to="/requests">Requests</base-button></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
 </template>
 
 <style scoped>
 header {
-  width: 100%;
-  height: 5rem;
-  background-color: #3d008d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: var(--white-2);
+  max-width: var(--max-width);
+  margin-top: 1.2rem;
 }
-
-header a {
-  text-decoration: none;
-  color: #f391e3;
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
-}
-
-a:active,
-a:hover,
-a.router-link-active {
-  border: 1px solid #f391e3;
-}
-
-h1 {
-  margin: 0;
-}
-
-h1 a {
-  color: white;
-  margin: 0;
-}
-
-h1 a:hover,
-h1 a:active,
-h1 a.router-link-active {
-  border-color: transparent;
-}
-
 header nav {
-  width: 90%;
-  margin: auto;
+  background: var(--purple-2);
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+#brand-title {
+  color: var(--white-2);
+  font-weight: normal;
+  padding: 1rem;
+}
+a:active,
+a:hover {
+  color: var(--pink-1);
+  background-color: var(--purple-3);
+  border-color: var(--purple-3);
+}
+a.router-link-active {
+  color: var(--pink-1);
+  background-color: var(--purple-3);
+}
+h1 a:hover,
+h1 a:active,
+h1 a.router-link-active {
+  border-color: transparent;
+  color: inherit;
+  background: none;
+}
 header ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.8rem;
 }
-
-li {
-  margin: 0 0.5rem;
+@media only screen and (max-width: 600px) {
+  header a,
+  logout-btn {
+    padding: 0.5em;
+    font-size: 0.9em;
+  }
+  li {
+    margin: 0 0.2rem;
+  }
 }
 </style>

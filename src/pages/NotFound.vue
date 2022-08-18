@@ -78,7 +78,7 @@
   font-family: 'FootlightMTLight';
 }
 .st1 {
-  font-size: 83.0285px;
+  font-size: 83px;
 }
 .st2 {
   fill: gray;

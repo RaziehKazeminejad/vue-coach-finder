@@ -3,36 +3,38 @@
     <base-dialog :show="!!error" title="An Error Occurred" @close="handleError">
       <p>{{ error }}</p>
     </base-dialog>
-    <section>
-      <coach-filter @change-filter="setFilter"></coach-filter>
-    </section>
-    <section>
-      <base-card>
-        <div>
-          <base-button mode="outline" @click="loadCoaches(true)"
-            >Refresh</base-button
-          >
-          <base-button v-if="!isCoach && !isLoading" link to="/register"
-            >Register as a coach</base-button
-          >
-        </div>
-        <div v-if="isLoading">
-          <base-spinner></base-spinner>
-        </div>
-        <ul v-else-if="hasCoaches">
-          <coach-item
-            v-for="coach in filteredCoaches"
-            :key="coach.id"
-            :id="coach.id"
-            :first-name="coach.firstName"
-            :last-name="coach.lastName"
-            :rate="coach.hourlyRate"
-            :areas="coach.areas"
-          ></coach-item>
-        </ul>
-        <h3 v-else>No coaches found.</h3>
-      </base-card>
-    </section>
+    <div class="row">
+      <section>
+        <base-card mode="flat">
+          <div class="controls">
+            <base-button mode="outline" @click="loadCoaches(true)"
+              >Refresh</base-button
+            >
+            <base-button v-if="!isCoach && !isLoading" link to="/register"
+              >Register as a coach</base-button
+            >
+          </div>
+          <section>
+            <coach-filter @change-filter="setFilter"></coach-filter>
+          </section>
+          <div v-if="isLoading">
+            <base-spinner></base-spinner>
+          </div>
+          <ul v-else-if="hasCoaches">
+            <coach-item
+              v-for="coach in filteredCoaches"
+              :key="coach.id"
+              :id="coach.id"
+              :first-name="coach.firstName"
+              :last-name="coach.lastName"
+              :rate="coach.hourlyRate"
+              :areas="coach.areas"
+            ></coach-item>
+          </ul>
+          <h3 v-else>No coaches found.</h3>
+        </base-card>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -104,12 +106,27 @@ export default {
 <style scoped>
 ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  gap: 2.4rem;
+  justify-content: center;
 }
-
 .controls {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.8rem;
+}
+@media only screen and (max-width: 600px) {
+  ul {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}
+h3 {
+  text-align: center;
+  margin-top: 2rem;
+}
+#loading {
+  margin-top: 4rem;
 }
 </style>

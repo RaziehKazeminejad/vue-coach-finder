@@ -35,39 +35,45 @@ a {
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: #3a0061;
-  border: 1px solid #3a0061;
-  color: white;
+  font-size: 1.4rem;
+	font-family: var(--font-display);
+	background-color: var(--purple-2);
+	border: 0.2rem solid transparent;
+	color: var(--white-2);
   cursor: pointer;
-  border-radius: 30px;
   margin-right: 0.5rem;
   display: inline-block;
+  border-radius: 0.8rem;
+	transition: all 200ms ease;
 }
 
 a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #270041;
-  border-color: #270041;
+  background-color: var(--purple-3);
+  border-color: var(--purple-3);
 }
-
 .flat {
   background-color: transparent;
-  color: #3a0061;
-  border: none;
+  border-color: transparent;
+  color: var(--purple-2);
+  text-decoration: none;
 }
-
 .outline {
   background-color: transparent;
-  border-color: #270041;
-  color: #270041;
+  color: var(--purple-2);
+  border-color: currentColor;
 }
-
 .flat:hover,
-.flat:active,
+.flat:active {
+  background-color: var(--pink-2);
+  color: var(--purple-3);
+  border-color: transparent;
+}
 .outline:hover,
 .outline:active {
-  background-color: #edd2ff;
+  background-color: var(--pink-2);
+  color: var(--purple-3);
 }
 </style>
