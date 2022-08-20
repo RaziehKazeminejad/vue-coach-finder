@@ -8,8 +8,10 @@ export default {
       hourlyRate: payload.rate,
       areas: payload.areas,
     };
+    const token = context.rootGetters.token;
     const response = await fetch(
-      `https://vue-http-demo-a42a2-default-rtdb.firebaseio.com/coaches/${userId}.json`,
+      `https://vue-http-demo-a42a2-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` +
+        token,
       {
         method: 'PUT',
         body: JSON.stringify(coachData),
@@ -26,9 +28,9 @@ export default {
     context.commit('addCoach', { ...coachData, id: userId });
   },
 
-  async loadCoaches(context,payload) {
-    if(!payload.forceRefresh && !context.getters.shouldUpdate){
-      return
+  async loadCoaches(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
     }
     const response = await fetch(
       `https://vue-http-demo-a42a2-default-rtdb.firebaseio.com/coaches.json`
