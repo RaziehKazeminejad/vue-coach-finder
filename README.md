@@ -3,4 +3,4 @@ The project is a platform where student can find coach and checkout their review
 
 > Built with Vue 3 (Options API), Vue Router, Vuex, Firebase realtime database & auth
 
->Link for review: https://vue-http-demo-2f57c.web.app/
+>Link for review: https://coach-finder-ea965.web.app/
